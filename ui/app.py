@@ -55,6 +55,10 @@ st.markdown("""
         font-family: 'Satoshi', sans-serif;
     }
 
+    body, [data-testid="stAppViewContainer"], [data-testid="stMainBlockContainer"] {
+        color: var(--charcoal) !important;
+    }
+
     [data-testid="stAppViewContainer"] {
         background-color: var(--white);
         background-image:
@@ -106,6 +110,10 @@ st.markdown("""
         color: var(--charcoal);
         margin-top: 1.5rem;
         letter-spacing: -0.01em;
+    }
+
+    p, span, div, label, li {
+        color: var(--charcoal) !important;
     }
 
     .caption-text {
