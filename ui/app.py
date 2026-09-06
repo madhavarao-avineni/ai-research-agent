@@ -481,7 +481,7 @@ if start and question.strip():
                             state[k] = v
         final_state = state
     except Exception as exc:
-        st.error(f"Research failed: {type(exc).__name__}\n\n{str(exc)}", icon="❌")
+        st.error(f"Research failed: {type(exc).__name__}\n\n{str(exc)}")
 
     if final_state:
         report = final_state.get("final_report")
@@ -502,7 +502,7 @@ if start and question.strip():
         with metric_col3:
             st.markdown(f"<div style='text-align: center;'><div style='font-size: 2.5rem; color: #FFB7B2; font-weight: 700;'>{evidence_status.upper()}</div><div style='font-size: 0.875rem; color: #78716C;'>Evidence status</div></div>", unsafe_allow_html=True)
 
-        st.success(f"✅ Research complete — {len(insights)} insights generated")
+        st.success(f"Research complete — {len(insights)} insights generated")
 
         # Tabs
         tab_report, tab_sources, tab_contra, tab_insights = st.tabs(
