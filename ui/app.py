@@ -491,17 +491,18 @@ if start and question.strip():
 
         st.divider()
 
-        # Metrics
+        # Summary Metrics
         metric_col1, metric_col2, metric_col3 = st.columns(3)
-        with metric_col1:
-            st.metric("Sources analyzed", len(sources))
-        with metric_col2:
-            st.metric("Iterations completed", final_state.get('research_iteration', 0) + 1)
-        with metric_col3:
-            evidence_status = final_state.get('evidence_sufficiency', EvidenceSufficiency.SUFFICIENT).value if final_state.get('evidence_sufficiency') else 'pending'
-            st.metric("Evidence status", evidence_status)
+        evidence_status = final_state.get('evidence_sufficiency', EvidenceSufficiency.SUFFICIENT).value if final_state.get('evidence_sufficiency') else 'pending'
 
-        st.success(f"✅ Research complete — {len(insights)} insights generated", icon="")
+        with metric_col1:
+            st.markdown(f"<div style='text-align: center;'><div style='font-size: 2.5rem; color: #FFB7B2; font-weight: 700;'>{len(sources)}</div><div style='font-size: 0.875rem; color: #78716C;'>Sources analyzed</div></div>", unsafe_allow_html=True)
+        with metric_col2:
+            st.markdown(f"<div style='text-align: center;'><div style='font-size: 2.5rem; color: #FFB7B2; font-weight: 700;'>{final_state.get('research_iteration', 0) + 1}</div><div style='font-size: 0.875rem; color: #78716C;'>Iterations</div></div>", unsafe_allow_html=True)
+        with metric_col3:
+            st.markdown(f"<div style='text-align: center;'><div style='font-size: 2.5rem; color: #FFB7B2; font-weight: 700;'>{evidence_status.upper()}</div><div style='font-size: 0.875rem; color: #78716C;'>Evidence status</div></div>", unsafe_allow_html=True)
+
+        st.success(f"✅ Research complete — {len(insights)} insights generated")
 
         # Tabs
         tab_report, tab_sources, tab_contra, tab_insights = st.tabs(
