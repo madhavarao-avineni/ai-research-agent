@@ -1,0 +1,43 @@
+# ---------------------------------------------------------------------------
+# AI-Powered Multi-Agent Research Assistant — dependencies
+# Pinned to minor versions for reproducibility; adjust as needed.
+# ---------------------------------------------------------------------------
+
+# --- Orchestration ---
+langgraph>=0.2.0
+langchain>=0.3.0
+langchain-core>=0.3.0
+langchain-community>=0.3.0
+langchain-openai>=0.2.0          # swap/add providers as needed
+
+# --- LLM providers (optional — enable what you use) ---
+openai>=1.40.0
+# anthropic>=0.34.0
+
+# --- RAG stack ---
+chromadb>=0.5.0
+sentence-transformers>=3.0.0     # local embeddings fallback
+tiktoken>=0.7.0
+
+# --- Tools / retrieval ---
+tavily-python>=0.5.0             # web search (requires TAVILY_API_KEY)
+arxiv>=2.1.0                     # research papers
+feedparser>=6.0.0                # news/RSS fallback
+requests>=2.32.0
+beautifulsoup4>=4.12.0           # HTML content extraction
+pypdf>=4.3.0                     # future PDF ingestion
+
+# --- Data models ---
+pydantic>=2.7.0
+typing-extensions>=4.11.0
+
+# --- UI ---
+streamlit>=1.36.0
+
+# --- Observability ---
+langsmith>=0.1.100
+python-dotenv>=1.0.0
+
+# --- Testing ---
+pytest>=8.2.0
+pytest-mock>=3.14.0
